@@ -1,20 +1,20 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Cards from './Cards'
-import { convertUnixTimestampToDate } from '../helpers/date_helper';
+import { convertUnixTimestampToDate, convertDateToUnixTimestamp, createDate } from '../helpers/date_helper';
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { chartConfig } from '../constants/config';
 import ChartFilter from './ChartFilter';
 import ThemeContext from '../contexts/ThemeContext';
-/*import { fetchHistoricalData } from '../api/stock_api';
-import StockContext from '../contexts/StockContext';*/
+import { fetchHistoricalData } from '../api/stock_api';
+import StockContext from '../contexts/StockContext';
 
 const Charts = () => {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState("1W");
     const { darkMode } = useContext(ThemeContext);
-    /*const { stockSymbol } = useContext(StockContext);*/
+    const { stockSymbol } = useContext(StockContext);
 
-    const formatData = () => {
+    const formatData = (data) => {
         return data.c.map((item, index) => {
             return {
                 value: item.toFixed(2),
@@ -22,7 +22,7 @@ const Charts = () => {
             };
         });
     };
-    /*useEffect(() => {
+    useEffect(() => {
         const getDateRange = () => {
             const {days, weeks, months, years} = chartConfig[filter];
 
@@ -46,7 +46,7 @@ const Charts = () => {
             }
         };
         updateChartData();
-    }, [stockSymbol, filter]);*/
+    }, [stockSymbol, filter]);
 
     return (
         <Cards>

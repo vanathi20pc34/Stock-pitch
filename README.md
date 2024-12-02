@@ -5,4 +5,5 @@ Then at the right side there are 2 columns.
 2nd column displays the name, country, currency, indurty etc of the company. Basically it displays the details of the company.
 Then there is a chart to check for specific date filters like 1 day or week or month or year.
 Unfortunately it is not being displayed.
-![Screenshot 2024-11-27 204744](https://github.com/user-attachments/assets/ca8a2709-cd96-48b2-8f10-b7b254836b39)
+
+![image](https://github.com/user-attachments/assets/5c2c085a-6136-4b0c-af2d-5d7bab27b1a9)
